@@ -1,0 +1,44 @@
+import React from "react";
+import GoogleIcon from "../assets/google-icon.svg";
+import AppleIcon from "../assets/appleIcon.svg";
+const Signin = () => {
+  return (
+    <div className="main_container">
+      <section className="left_section">
+        <h1>Board.</h1>
+      </section>
+      <section className="right_section">
+        <h2>Sign In</h2>
+        <p className="signin_p">Sign in to your account</p>
+        <div className="signin_options">
+          <button className="google">
+            <img src={GoogleIcon} alt="google-icon" />
+            Sign in with Google
+          </button>
+          <button className="apple">
+            <img src={AppleIcon} alt="apple-icon" />
+            Sign in with Apple
+          </button>
+        </div>
+        <form>
+          <div className="wrapper">
+            <label>Email address</label>
+            <input />
+          </div>
+          <div className="wrapper">
+            <label>Password</label>
+            <input type="password" />
+          </div>
+          <p className="forgot_password">Forgot Password ?</p>
+          <button className="sign_in_button">Sign In</button>
+        </form>
+
+        <p className="no_account">
+          Don’t have an account? <span className="colored">Register here</span>
+        </p>
+      </section>
+    </div>
+  );
+};
+
+export default Signin;
