@@ -4,7 +4,7 @@ import AppleIcon from "../assets/appleIcon.svg";
 import { useNavigate } from "react-router-dom";
 const Signin = () => {
   const toDashboard = (navigate) => {
-    navigate("/home");
+    navigate("/dashboard");
   };
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Signin = () => {
         <h2>Sign In</h2>
         <p className="signin_p">Sign in to your account</p>
         <div className="signin_options">
-          <button className="google" onClick={() => navigate("/home")}>
+          <button className="google" onClick={() => navigate("/dashboard")}>
             <img src={GoogleIcon} alt="google-icon" />
             Sign in with Google
           </button>
@@ -26,7 +26,7 @@ const Signin = () => {
             Sign in with Apple
           </button>
         </div>
-        <form onSubmit={() => toDashboard(navigate)}>
+        <form>
           <div className="wrapper">
             <label>Email address</label>
             <input type="email" required />
@@ -36,7 +36,7 @@ const Signin = () => {
             <input type="password" required />
           </div>
           <p className="forgot_password">Forgot Password ?</p>
-          <button type="submit" className="sign_in_button">
+          <button type="submit" className="sign_in_button" onClick={toDashboard}>
             Sign In
           </button>
         </form>
