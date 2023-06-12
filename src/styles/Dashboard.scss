@@ -10,6 +10,11 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  .header-user-icon {
+    filter: invert(1);
+    width: 20px;
+    height: 20px;
+  }
 }
 .dashboard_left {
   flex: 1;
@@ -160,19 +165,20 @@
         font-weight: $font-weight-medium;
         font-size: $font-size-medium;
         color: #000000;
-        margin: 0px 0px 20px 40px;
+        text-align: center;
+        margin: 10px 0px;
         margin-top: 10px;
       }
     }
   }
   .piechart {
+    gap: 24px;
     display: flex;
-    gap: 43px;
     align-items: center;
     justify-content: center;
     .wrapper {
       display: grid;
-      gap: 10px;
+      gap: 5px;
     }
     .mapped-products {
       div {
@@ -188,13 +194,13 @@
       h4 {
         font-family: "Montserrat";
         font-weight: 700;
-        font-size: 14px;
+        font-size: 12px;
         color: #000000;
       }
       p {
         font-family: "Lato";
         font-weight: 400;
-        font-size: 12px;
+        font-size: 10px;
         color: #858585;
         margin-top: 5px;
       }
@@ -209,6 +215,7 @@
       }
     }
   }
+
   .meetings {
     width: 100%;
     width: 100%;
@@ -233,6 +240,13 @@
       font-weight: $font-weight-normal;
       font-size: $font-size-very-small;
       color: #858585;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      img {
+        height: 5px;
+        object-fit: cover;
+      }
     }
   }
   .schedule_wrapper {
@@ -259,21 +273,13 @@
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1100px) {
   .dashboard_main {
     flex-direction: row;
   }
   .dashboard_right {
     .header {
       flex-direction: row;
-
-      .end_profile_section {
-        .header-user-icon {
-          filter: invert(1);
-          width: 20px;
-          height: 20px;
-        }
-      }
     }
   }
   .dashboard_left {
@@ -301,6 +307,29 @@
     }
   }
   .end_section {
+    .piechart_wrapper {
+      .header {
+        h3 {
+          text-align: unset;
+          margin: 0px 0px 20px 40px;
+          margin-top: 10px;
+        }
+      }
+    }
+    .piechart {
+      gap: 43px;
+      .wrapper {
+        gap: 10px;
+      }
+      .mapped-products {
+        h4 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+    }
     flex-direction: row;
   }
 }

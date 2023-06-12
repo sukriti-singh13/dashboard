@@ -13,8 +13,10 @@ const CustomLineChart = ({ data }) => {
   const [chartWidth, setChartWidth] = useState(800);
   const [chartHeight, setChartHeight] = useState(300);
   useEffect(() => {
-    if (window.innerWidth < 900) {
-      setChartWidth(300);
+    if (window.innerWidth <= 500) {
+      setChartWidth(200);
+    } else if (window.innerWidth > 500 && window.innerWidth <= 1400) {
+      setChartWidth(600);
     }
   }, [window.innerWidth]);
   return (
