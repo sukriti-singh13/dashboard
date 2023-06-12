@@ -3,10 +3,11 @@ import GoogleIcon from "../assets/google-icon.svg";
 import AppleIcon from "../assets/appleIcon.svg";
 import { useNavigate } from "react-router-dom";
 const Signin = () => {
-  const navigate = useNavigate();
-  const toDashboard = () => {
+  const toDashboard = (navigate) => {
     navigate("/home");
   };
+  const navigate = useNavigate();
+
   return (
     <div className="main_container">
       <section className="left_section">
@@ -25,7 +26,7 @@ const Signin = () => {
             Sign in with Apple
           </button>
         </div>
-        <form onSubmit={toDashboard}>
+        <form onSubmit={() => toDashboard(navigate)}>
           <div className="wrapper">
             <label>Email address</label>
             <input type="email" required />
