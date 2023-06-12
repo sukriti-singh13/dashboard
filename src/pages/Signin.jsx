@@ -36,7 +36,7 @@ const Signin = () => {
             <input type="password" required />
           </div>
           <p className="forgot_password">Forgot Password ?</p>
-          <button type="submit" className="sign_in_button" onClick={toDashboard}>
+          <button  className="sign_in_button" onClick={toDashboard}>
             Sign In
           </button>
         </form>
