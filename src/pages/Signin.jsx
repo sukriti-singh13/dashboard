@@ -23,14 +23,14 @@ const Signin = () => {
         <form>
           <div className="wrapper">
             <label>Email address</label>
-            <input />
+            <input type="email" required />
           </div>
           <div className="wrapper">
             <label>Password</label>
-            <input type="password" />
+            <input type="password" required />
           </div>
           <p className="forgot_password">Forgot Password ?</p>
-          <button className="sign_in_button">Sign In</button>
+          <button type="submit" className="sign_in_button">Sign In</button>
         </form>
 
         <p className="no_account">

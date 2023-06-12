@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DashboardIcon from "../assets/dashboard_icon.svg";
 import TransactionIcon from "../assets/transaction_icon.svg";
 import ScheduleIcon from "../assets/schedule_icon.svg";
@@ -10,6 +10,8 @@ import firstBlockIcon from "../assets/firstBlock.svg";
 import SecondBlockIcon from "../assets/secondBlock.svg";
 import ThirdBlockIcon from "../assets/thirdBlock.svg";
 import fourthBlockIcon from "../assets/fourthBlock.svg";
+import CustomLineChart from "../components/CustomLineChart";
+import CustomPieChart from "../components/CustomPieChart";
 
 const Dashboard = () => {
   const navigationContent = [
@@ -19,7 +21,30 @@ const Dashboard = () => {
     { icon: UserIcon, title: "Users" },
     { icon: SettingIcon, title: "Settings" },
   ];
+  const [data, setdata] = useState();
 
+  useEffect(() => {
+    const fetchDatas = async (asset) => {
+      const res = await fetch(
+        `https://api.coincap.io/v2/assets/${asset}/history?interval=d1`
+      );
+      const data = await res.json();
+      if (data) {
+        let temp = data.data.splice(0, 7);
+        temp.forEach(data => {
+          data.date = data.date.slice(0, 10);
+          const newDate = new Date(data.date).toDateString()
+          console.log(newDate)
+          return data
+        });
+        
+        console.log(temp);
+        setdata(temp);
+      } 
+    };
+    
+    fetchDatas("bitcoin");
+  }, []);
   const blockItem = [
     {
       icon: firstBlockIcon,
@@ -84,6 +109,36 @@ const Dashboard = () => {
                 <h4>{item.value}</h4>
               </div>
             ))}
+          </div>
+          {/* line chart */}
+          <CustomLineChart data={data} />
+          <div className="end_section">
+            <div className="piechart">
+              <CustomPieChart  />
+            </div>
+            <div className="meetings">
+              <div className="meet-header">
+                <h4>Today's Schedule</h4>
+                <p>See All </p>
+              </div>
+
+              <div className="schedule_wrapper">
+                <div className="colored-div-green"></div>
+                <div className="meet-content">
+                  <h5>Meeting with suppliers from Kuta Bali</h5>
+                  <p>14.00-15.00</p>
+                  <p>at Sunset Road, Kuta, Bali </p>
+                </div>
+              </div>
+              <div className="schedule_wrapper">
+                <div className="colored-div-purple"></div>
+                <div className="meet-content">
+                  <h5>Check operation at Giga Factory 1</h5>
+                  <p>18.00-20.00</p>
+                  <p>at Central Jakarta </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
