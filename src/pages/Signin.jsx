@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Signin = () => {
   const navigate = useNavigate();
   const toDashboard = () => {
-    navigate("/dashboard");
+    navigate("/home");
   };
   return (
     <div className="main_container">
