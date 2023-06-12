@@ -16,7 +16,7 @@ const Signin = () => {
         <h2>Sign In</h2>
         <p className="signin_p">Sign in to your account</p>
         <div className="signin_options">
-          <button className="google">
+          <button className="google" onClick={() => navigate("/home")}>
             <img src={GoogleIcon} alt="google-icon" />
             Sign in with Google
           </button>
