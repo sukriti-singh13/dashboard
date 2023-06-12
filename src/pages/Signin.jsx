@@ -26,20 +26,20 @@ const Signin = () => {
             Sign in with Apple
           </button>
         </div>
-        <form>
+        <div>
           <div className="wrapper">
             <label>Email address</label>
-            <input type="email" required />
+            <input type="email"  />
           </div>
           <div className="wrapper">
             <label>Password</label>
-            <input type="password" required />
+            <input type="password"  />
           </div>
           <p className="forgot_password">Forgot Password ?</p>
           <button  className="sign_in_button" onClick={toDashboard}>
             Sign In
           </button>
-        </form>
+        </div>
 
         <p className="no_account">
           Don’t have an account? <span className="colored">Register here</span>
