@@ -3,7 +3,7 @@ import GoogleIcon from "../assets/google-icon.svg";
 import AppleIcon from "../assets/appleIcon.svg";
 import { useNavigate } from "react-router-dom";
 const Signin = () => {
-  const toDashboard = (navigate) => {
+  const toDashboard = () => {
     navigate("/dashboard");
   };
   const navigate = useNavigate();
