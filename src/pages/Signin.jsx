@@ -26,7 +26,7 @@ const Signin = () => {
             Sign in with Apple
           </button>
         </div>
-        <div>
+        <div className="form">
           <div className="wrapper">
             <label>Email address</label>
             <input type="email"  />
