@@ -6,7 +6,6 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
-  ResponsiveContainer,
   Legend,
 } from "recharts";
 const CustomLineChart = ({ data }) => {
