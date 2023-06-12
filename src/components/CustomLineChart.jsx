@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLayoutEffect } from "react";
 import {
   LineChart,
   Line,
@@ -11,27 +12,11 @@ import {
 const CustomLineChart = ({ data }) => {
   const [chartWidth, setChartWidth] = useState(800);
   const [chartHeight, setChartHeight] = useState(300);
-
   useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      if (screenWidth >= 1000) {
-        setChartWidth(800);
-        setChartHeight(200);
-      } else if (screenWidth <= 999 && screenWidth >= 400) {
-        setChartWidth(500);
-        setChartHeight(200);
-      } else {
-        setChartWidth(300);
-        setChartHeight(200);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    if (window.innerWidth < 900) {
+      setChartWidth(300);
+    }
+  }, [window.innerWidth]);
   return (
     <div className="line-chart-wrapper">
       <h3>Activities</h3>
