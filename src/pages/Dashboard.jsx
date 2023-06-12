@@ -12,7 +12,7 @@ import ThirdBlockIcon from "../assets/thirdBlock.svg";
 import fourthBlockIcon from "../assets/fourthBlock.svg";
 import CustomLineChart from "../components/CustomLineChart";
 import CustomPieChart from "../components/CustomPieChart";
-
+import More from "../assets/more.svg";
 const Dashboard = () => {
   const navigationContent = [
     { icon: DashboardIcon, title: "Dashboard" },
@@ -31,20 +31,21 @@ const Dashboard = () => {
       const data = await res.json();
       if (data) {
         let temp = data.data.splice(0, 7);
-        temp.forEach(data => {
+        temp.forEach((data) => {
           data.date = data.date.slice(0, 10);
-          const newDate = new Date(data.date).toDateString()
-          console.log(newDate)
-          return data
+          const newDate = new Date(data.date).toDateString();
+          console.log(newDate);
+          return data;
         });
-        
+
         console.log(temp);
         setdata(temp);
-      } 
+      }
     };
-    
+
     fetchDatas("bitcoin");
   }, []);
+
   const blockItem = [
     {
       icon: firstBlockIcon,
@@ -69,6 +70,24 @@ const Dashboard = () => {
       title: "Total Users",
       value: "892",
       color: "DEE0EF",
+    },
+  ];
+
+  const topCoins = [
+    {
+      color: "green",
+      title: "Bitcoin",
+      subTitle: "55%",
+    },
+    {
+      color: "yellow",
+      title: "Ehereum",
+      subTitle: "31%",
+    },
+    {
+      color: "pink",
+      title: "Solana",
+      subTitle: "14%",
     },
   ];
   return (
@@ -98,6 +117,11 @@ const Dashboard = () => {
                 <img src={SearchIcon} alt="search-icon" />
               </div>
               <img src={BellIcon} alt="bell-icon" />
+              <img
+                className="header-user-icon"
+                src={UserIcon}
+                alt="user-icon"
+              />
             </div>
           </div>
           {/* blocks */}
@@ -113,13 +137,34 @@ const Dashboard = () => {
           {/* line chart */}
           <CustomLineChart data={data} />
           <div className="end_section">
-            <div className="piechart">
-              <CustomPieChart  />
+            <div className="piechart_wrapper">
+              <div className="header">
+                <h3>Top Crypto Currency</h3>
+              </div>
+
+              <div className="piechart">
+                <CustomPieChart data={data} />
+                <div className="wrapper">
+                  {topCoins.map((coin) => (
+                    <div className="mapped-products">
+                      <div>
+                        <div className={`circle ${coin.color}`}></div>
+                        <h4>{coin.title}</h4>
+                      </div>
+
+                      <p>{coin.subTitle}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
+
             <div className="meetings">
               <div className="meet-header">
                 <h4>Today's Schedule</h4>
-                <p>See All </p>
+                <p>
+                  See All <img src={More} alt="more" />
+                </p>
               </div>
 
               <div className="schedule_wrapper">

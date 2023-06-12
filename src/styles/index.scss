@@ -30,4 +30,11 @@ button {
   padding: 30px 40px 40px 40px;
   display: grid;
   place-content: center;
+  h3 {
+    margin: 30px 0px 30px 0px;
+    font-family: $font-primary;
+    font-weight: 700;
+    font-size: $font-size-regular;
+    color: #000000;
+  }
 }
